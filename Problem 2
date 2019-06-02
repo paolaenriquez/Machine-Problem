@@ -1,0 +1,98 @@
+// Problem 2
+
+// This program compute for all interior angles;
+// clasifies whether it is scalene, isosceles or equilateral and whether it is acute, right or obtuse triangle;
+// determines its area and perimeter;
+// and computes for the length of apothem and circumcenter
+
+#include <iostream>
+#include <conio.h>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+
+// Introduction
+cout << "Triangles" << endl;
+cout << endl;
+
+double side, adjacent, opposite, hypotenuse, sum1, sum2, sum3;
+
+// Values for the side
+cout << "Give a value for Adjacent: ";
+cin >> adjacent;
+cout << "Give a value for Opposite: ";
+cin >> opposite;
+cout << "Give a value for Hypotenuse: ";
+cin >> hypotenuse;
+
+cout << endl;
+
+// Compute for interior angles
+cout << "Interior Angles (Side): " << endl;
+
+cout << acos(((opposite * opposite) + (hypotenuse * hypotenuse) - (adjacent * adjacent)) / (2 * opposite * hypotenuse)) * 180 / M_PI << "°" << endl;
+
+cout << acos(((adjacent * adjacent) + (hypotenuse * hypotenuse) - (opposite * opposite)) / (2 * adjacent * hypotenuse)) * 180 / M_PI << "°" << endl;
+
+cout << acos(((adjacent * adjacent) + (opposite * opposite) - (hypotenuse * hypotenuse)) / (2 * adjacent * opposite)) * 180 / M_PI << "°" << endl;
+
+
+cout << endl;
+
+// Classify wether scalene, isosceles, or equilateral
+cout << "Type of Triangle is: " << endl;
+if(adjacent != opposite && opposite != hypotenuse)
+cout << "Scalene" << endl;
+  else if(adjacent == opposite && opposite == hypotenuse)
+cout << "Equilateral" << endl;
+else
+cout << "Isosceles" << endl;
+
+cout << endl;
+
+// Area and Perimeter
+cout << "Area: " << .5 * adjacent * opposite << endl;
+cout << "Perimeter: " << adjacent + opposite + hypotenuse << endl;
+
+cout << endl;
+
+// Classifying wether acute, right triangle, or obtuse triangle
+cout << "Type of Triangle (Angle): " << endl;
+sum1 = acos(((opposite * opposite) + (hypotenuse * hypotenuse) - (adjacent * adjacent)) / (2 * opposite * hypotenuse)) * 180 / M_PI;
+sum2 = acos(((adjacent * adjacent) + (hypotenuse * hypotenuse) - (opposite * opposite)) / (2 * adjacent * hypotenuse)) * 180 / M_PI;
+sum3 = acos(((adjacent * adjacent) + (opposite * opposite) - (hypotenuse * hypotenuse)) / (2 * adjacent * opposite)) * 180 / M_PI;
+
+if(sum1 < 90 && sum2 < 90 && sum3 < 90)
+cout << "Acute Triangle" << endl;
+else if(sum1 = 90 && sum2 > 0 && sum3 > 0)
+cout << "Right Triangle" << endl;
+else if(sum2 = 90 && sum3 > 0 && sum1 > 0)
+cout << "Right Triangle" << endl;
+else if(sum3 = 90 && sum1 > 0 && sum2 > 0)
+cout << "Right Triangle" << endl;
+else if(sum1 > 90 && sum2 > 0 && sum3 > 0)
+cout << "Obtuse Triangle" << endl;
+else if(sum2 > 90 && sum3 > 0 && sum2 > 0)
+cout << "Obtuse Triangle" << endl;
+else if(sum3 > 90 && sum1 > 0 && sum1 > 0)
+cout << "Obtuse Triangle" << endl;
+
+cout << endl;
+
+// Compute for length of apothem and circumcenter
+cout << "Length of Apothem: " << endl;
+cout << adjacent / (2 * tan(180 / 3)) << endl;
+cout << opposite / (2 * tan(180 / 3)) << endl;
+cout << hypotenuse / (2 * tan(180 / 3)) << endl;
+
+cout << "Circumcenter: " << endl;
+cout << (adjacent * opposite * hypotenuse) / (sqrt((adjacent + opposite + hypotenuse) * (opposite + hypotenuse - adjacent) * (hypotenuse + adjacent - opposite) * (adjacent + opposite - hypotenuse)));
+
+
+
+_getch();
+return 0; 
+}
