@@ -1,0 +1,128 @@
+// Student Grades
+
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int main(){
+
+
+// Declaration of Variables
+
+string FirstName, LastName, A, Name[50];
+int Experiment[9], Skills[9], Machine[2],Finals,Prelims;
+double sum1,sum2,sum3, averageE, averageS, averageM, Raw, transmuted;
+
+cout<<"Enter Your First Name and Last Name: "<< endl;
+// Array for the Name
+for (int i = 1; i <= 50; i++)
+{
+cout<<"Student "<<i<<":";
+cin>>FirstName>>LastName;
+//Array for the Experiment
+    for (int j = 1; j <= 9; j++) 
+	{
+		cout<<"Experiment "<<j<<":";
+        cin>>Experiment[j];
+        // Total sum and average of the array
+        sum1 = 0;
+	    for (int j = 1; j <= 9; j++) 
+		sum1 = sum1 + Experiment[j];
+	
+	averageE = (sum1 / 9) * .1;
+		}	
+		// Array for the skills test
+		for (int x = 1; x <= 9; x++)
+		{
+		cout<<"Skills Test "<<x<<":";
+		cin>>Skills[x];	
+		// Sum and Average of the Skills Test
+		sum2 = 0;
+	    for (int x = 1; x <= 9; x++) 
+		sum2 = sum2 + Skills[x];
+	
+	    averageS = (sum2 / 9) * .2;
+		}
+		//Array for the Machine Problem
+		for (int q = 1; q <= 2; q++)
+		{
+		cout<<"Machine Problem "<<q<<":";
+		cin>>Machine[q];
+		// Sum and Average of the Machine Problem
+		sum3 = 0;
+	    for (int q = 1; q <= 2; q++) 
+		sum3 = sum3 + Machine[q];
+	
+	    averageM = (sum3 / 2) * .2;		
+		}
+		// Input both the prelims and finals score
+		cout<< "Prelims Score: ";
+		cin>> Prelims;
+		cout<<"Finals Score: ";
+		cin>>Finals;
+		// Codes for the Average of each array and total raw grade
+		cout<< "Experiment Average: "<< averageE<<"%"<<endl;
+		cout<< "Skills Test Average: "<< averageS<<"%"<<endl;
+		cout<< "Machine Problem Average: "<< averageM<<"%"<<endl;
+		cout<< "Major Exams Total: "<<(Prelims * .20) + (Finals * .30)<< "%"<<endl;
+		cout<< "Raw Grade: "<<(Prelims * .20) + (Finals * .30) + averageE + averageS + averageM<< "%"<<endl;
+		// Input the Raw and shows the transmutated grade
+		Raw = (Prelims * .20) + (Finals * .30) + averageE + averageS + averageM;
+		if (Raw < 60)
+		{
+			transmuted = 5.00;
+		}
+		else if (Raw <=64.44)
+		{
+			transmuted = 3.00;
+		}
+		else if (Raw <=68.89)
+		{
+			transmuted = 2.75;
+		}
+		else if (Raw <=73.33)
+		{
+			transmuted = 2.50;
+		}
+		else if (Raw <=77.78)
+		{
+			transmuted = 2.25;
+		}
+		else if (Raw <=82.22)
+		{
+			transmuted = 2.00;
+		}
+		else if (Raw <=86.67)
+		{
+			transmuted = 1.75;
+		}
+		else if (Raw <=91.11)
+		{
+			transmuted = 1.50;
+		}
+		else if (Raw <=95.56)
+		{
+			transmuted = 1.25;
+		}
+		else if (Raw <=100)
+		{
+			transmuted = 1.00;
+		}
+		
+		cout<< "Final Grade: "<< transmuted<<endl;
+		//shows if the student fails or pass
+		if (Raw < 60 )
+		{
+			cout<<"Fail "<<endl;
+		}
+		else if (Raw >= 60 )
+		{
+			cout<<"Pass "<<endl;
+		}
+		
+		
+}
+return 0;
+}
